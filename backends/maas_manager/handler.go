@@ -43,7 +43,7 @@ func handle(w http.ResponseWriter, r *http.Request, appConfig config.AppConfig, 
 
 	proxyBody, err := json.Marshal(managerLoginRequest{Username: req.Username})
 	if err != nil {
-		WriteError(w, r.URL.Path, "Target request build failed", "maas-manager login is temporarily unavailable. Please try again later.", err, http.StatusInternalServerError)
+		WriteError(w, r.URL.Path, "Target request serialization failed", "We could not prepare your login request. Please try again later.", err, http.StatusInternalServerError)
 		return
 	}
 
